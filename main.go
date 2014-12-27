@@ -7,6 +7,7 @@ import (
     "github.com/PuerkitoBio/fetchbot"
 )
 
+// メイン処理
 func main() {
     f := fetchbot.New(fetchbot.HandlerFunc(handler))
     queue := f.Start()
@@ -14,6 +15,7 @@ func main() {
     queue.Close()
 }
 
+// 実行時処理
 func handler(ctx *fetchbot.Context, res *http.Response, err error) {
     if err != nil {
         fmt.Printf("error: %s\n", err)
